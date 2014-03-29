@@ -1,0 +1,10 @@
+name             'arcgis_open_data_app_server'
+maintainer       'Stefan Novak'
+maintainer_email 'snovak@esri.com'
+license          'All rights reserved'
+description      'Contains system requirements for the Open Data app servers'
+long_description 'Contains system requirements for the Open Data app servers'
+version          '0.1.0'
+
+depends 'nginx'
+depends 'deploy'
