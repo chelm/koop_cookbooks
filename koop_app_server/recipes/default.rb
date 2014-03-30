@@ -1,18 +1,6 @@
-package 'libcairo2-dev' do
-    action :install
-end
-  
-package 'pkg-config' do
-    action :install
-end
+include_recipe 'deploy'
 
-package 'postgresql-9.3' do
-  action :install
-end
-
-#include_recipe 'deploy'
-#
-#node[:deploy].each do |application, deploy|
+node[:deploy].each do |application, deploy|
 #
 #  execute 'apt-get update' do
 #    command 'apt-get update'
@@ -40,17 +28,17 @@ end
 #    action :nothing
 #  end
 #  
-#  directory node[:koop][:data_dir] do
-#    mode 0755
-#    action :create
-#  end
-#  
-#  template 'local.js' do
-#    path "#{deploy[:deploy_to]}/local.js"
-#    source 'local.js.erb'
-#    owner 'root'
-#    group 'root'
-#    mode 0644
-#  end
-#
-#end
+  directory node[:koop][:data_dir] do
+    mode 0755
+    action :create
+  end
+  
+  template 'local.js' do
+    path "#{deploy[:deploy_to]}/local.js"
+    source 'local.js.erb'
+    owner 'root'
+    group 'root'
+    mode 0644
+  end
+
+end
