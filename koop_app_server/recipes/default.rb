@@ -1,6 +1,25 @@
-include_recipe 'deploy'
+include_recipe 'apt'
 
-node[:deploy].each do |application, deploy|
+apt_repository 'apt.postgresql.org' do
+  components ['main']
+  distribution "#{node['lsb']['codename']}-pgdg"
+  key 'http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc'
+  notifies :run, 'execute[apt-get update]', :immediately
+  uri 'http://apt.postgresql.org/pub/repos/apt'
+end
+
+package "pgdg-keyring"
+package 'libgdal-dev'
+package 'libpq-dev'
+package 'postgresql-9.3'
+package 'postgresql-client-9.3'
+
+directory node[:koop][:data_dir] do
+  mode 0755
+  action :create
+end
+
+#node[:deploy].each do |application, deploy|
 #
 #  execute 'apt-get update' do
 #    command 'apt-get update'
@@ -28,10 +47,6 @@ node[:deploy].each do |application, deploy|
 #    action :nothing
 #  end
 #  
-  directory node[:koop][:data_dir] do
-    mode 0755
-    action :create
-  end
   
 #  template 'local.js' do
 #    path "#{deploy[:deploy_to]}/local.js"
@@ -41,4 +56,4 @@ node[:deploy].each do |application, deploy|
 #    mode 0644
 #  end
 
-end
+#end
