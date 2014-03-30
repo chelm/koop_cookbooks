@@ -33,12 +33,12 @@ node[:deploy].each do |application, deploy|
     action :create
   end
   
-  template 'local.js' do
-    path "#{deploy[:deploy_to]}/local.js"
-    source 'local.js.erb'
-    owner 'root'
-    group 'root'
-    mode 0644
-  end
+#  template 'local.js' do
+#    path "#{deploy[:deploy_to]}/local.js"
+#    source 'local.js.erb'
+#    owner 'root'
+#    group 'root'
+#    mode 0644
+#  end
 
 end
