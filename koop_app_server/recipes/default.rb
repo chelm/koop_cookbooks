@@ -26,7 +26,7 @@ node[:deploy].each do |application, deploy|
   end
 
   template 'local.js' do
-    path "#{deploy[:deploy_to]}/local.js"
+    path "#{deploy[:deploy_to]}/config/local.js"
     source 'local.js.erb'
     owner 'root'
     group 'root'
