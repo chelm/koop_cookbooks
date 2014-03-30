@@ -1,19 +1,44 @@
 include_recipe 'deploy'
-include_recipe 'nginx'
-
-chef_gem 'chef-rewind'
-require 'chef/rewind'
 
 node[:deploy].each do |application, deploy|
-  unicorn_template = "#{node[:nginx][:dir]}/sites-available/#{application}"
 
-  rewind :template => unicorn_template do
-    cookbook_name 'arcgis_open_data_app_server'
+  execute 'apt-get update' do
+    command 'apt-get update'
+    ignore_failure true
+    only_if { apt_installed? }
+    action :nothing
+  end
+  
+  package 'libcairo2-dev' do
+    action :install
+  end
+  
+  package 'pkg-config' do
+    action :install
+  end
+  
+  package 'postgresql-9.3' do
+    action :install
+  end
+  
+  execute 'npm install -g grunt-cli forever' do
+    command 'npm install -g grunt-cli forever'
+    ignore_failure true
+    only_if { apt_installed? }
+    action :nothing
+  end
+  
+  directory node[:koop][:data_dir] do
+    mode 0755
+    action :create
+  end
+  
+  template 'local.js' do
+    path "#{deploy[:current_path]}/local.js"
+    source 'local.js.erb'
+    owner 'root'
     group 'root'
     mode 0644
-    notifies :reload, 'service[nginx]', :delayed
-    owner 'root'
-    source 'nginx.conf.erb'
-    variables :application => application
   end
+
 end

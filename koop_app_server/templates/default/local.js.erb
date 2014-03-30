@@ -1,0 +1,17 @@
+module.exports = {
+  logfile: <%= node[:koop][:logfile] %>,
+  peechee: {
+    type: 'local',
+    dir: <%= node[:koop][:data_dir] %>,
+  },
+  data_dir: <%= node[:koop][:data_dir] %>,
+  github_token: <%= node[:koop][:gh_token] %>,
+  image_cache: true,
+  db: {
+    postgis: {
+      conn: <%= node[:koop][:db][:potgis][:conn] %>,
+    }
+  },
+  port: process.env.PORT || <%= node[:koop][:port] %>,
+  environment: process.env.NODE_ENV || 'development'
+};
