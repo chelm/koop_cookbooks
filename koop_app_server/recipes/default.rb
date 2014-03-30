@@ -8,11 +8,14 @@ apt_repository 'apt.postgresql.org' do
   uri 'http://apt.postgresql.org/pub/repos/apt'
 end
 
+package 'pkg-config'
+package 'libcairo2-dev'
 package "pgdg-keyring"
 package 'libgdal-dev'
 package 'libpq-dev'
 package 'postgresql-9.3'
 package 'postgresql-client-9.3'
+package 'postgresql-server-dev-all'
 
 directory node[:koop][:data_dir] do
   mode 0755
