@@ -1,7 +1,7 @@
 include_recipe 'apt'
-include_recipe 'deploy'
+#include_recipe 'deploy'
 
-node[:deploy].each do |application, deploy|
+#node[:deploy].each do |application, deploy|
 
   apt_repository 'apt.postgresql.org' do
     components ['main']
@@ -25,15 +25,15 @@ node[:deploy].each do |application, deploy|
     action :create
   end
 
-  template 'local.js' do
-    path "#{deploy[:deploy_to]}/config/local.js"
-    source 'local.js.erb'
-    owner 'root'
-    group 'root'
-    mode 0644
-  end
+#  template 'local.js' do
+#    path "#{deploy[:deploy_to]}/config/local.js"
+#    source 'local.js.erb'
+#    owner 'root'
+#    group 'root'
+#    mode 0644
+#  end
 
-end
+#end
 
 #
 #  execute 'apt-get update' do
