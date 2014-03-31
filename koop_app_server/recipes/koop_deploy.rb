@@ -10,8 +10,8 @@
     cookbook 'koop_app_server'
     path "/srv/www/koop/current/config/local.js"
     source 'local.js.erb'
-    owner root
-    group root
+    owner 'root'
+    group 'root'
     mode 0644
   end
 
