@@ -1,6 +1,5 @@
-include_recipe 'deploy'
-
-node[:deploy].each do |application, deploy|
+#include_recipe 'deploy'
+#node[:deploy].each do |application, deploy|
 
   directory node[:koop][:data_dir] do
     mode 0755
@@ -9,11 +8,11 @@ node[:deploy].each do |application, deploy|
 
   template 'local.js' do
     cookbook 'koop_app_server'
-    path "#{deploy[:deploy_to]}/current/config/local.js"
+    path "/srv/www/koop/current/config/local.js"
     source 'local.js.erb'
-    owner deploy[:user]
-    group deploy[:group]
+    owner root
+    group root
     mode 0644
   end
 
-end
+#end
