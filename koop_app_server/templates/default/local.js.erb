@@ -9,9 +9,9 @@ module.exports = {
   image_cache: true,
   db: {
     postgis: {
-      conn: <%= node[:koop][:db][:postgis][:conn] %>,
+      conn: '<%= node[:koop][:db][:postgis][:conn] %>',
     }
   },
-  port: process.env.PORT || <%= node[:koop][:port] %>,
-  environment: process.env.NODE_ENV || 'development'
+  port: <%= node[:koop][:port] %>,
+  environment: 'production'
 };
