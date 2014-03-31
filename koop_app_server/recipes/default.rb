@@ -20,10 +20,10 @@ include_recipe 'apt'
   package 'postgresql-client-9.3'
   package 'postgresql-server-dev-all'
   
-  directory node[:koop][:data_dir] do
-    mode 0755
-    action :create
-  end
+  #directory node[:koop][:data_dir] do
+  #  mode 0755
+  #  action :create
+  #end
 
 #  template 'local.js' do
 #    path "#{deploy[:deploy_to]}/config/local.js"
