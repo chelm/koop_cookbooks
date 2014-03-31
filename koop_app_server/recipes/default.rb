@@ -8,6 +8,7 @@ apt_repository 'apt.postgresql.org' do
   uri 'http://apt.postgresql.org/pub/repos/apt'
 end
 
+package 'gdal-bin'
 package 'pkg-config'
 package 'libcairo2-dev'
 package "pgdg-keyring"
@@ -16,4 +17,3 @@ package 'libpq-dev'
 package 'postgresql-9.3'
 package 'postgresql-client-9.3'
 package 'postgresql-server-dev-all'
-package 'gdal-bin'
