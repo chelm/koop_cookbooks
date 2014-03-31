@@ -8,10 +8,11 @@ node[:deploy].each do |application, deploy|
   end
 
   #template 'local.js' do
+  #  cookbook 'koop_app_server'
   #  path "#{deploy[:deploy_to]}/config/local.js"
   #  source 'local.js.erb'
-  #  owner 'root'
-  #  group 'root'
+  #   owner deploy[:user]
+  #   group deploy[:group]
   #  mode 0644
   #end
 
