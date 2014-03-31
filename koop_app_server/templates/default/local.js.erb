@@ -9,7 +9,7 @@ module.exports = {
   image_cache: true,
   db: {
     postgis: {
-      conn: <%= node[:koop][:db][:potgis][:conn] %>,
+      conn: <%= node[:koop][:db][:postgis][:conn] %>,
     }
   },
   port: process.env.PORT || <%= node[:koop][:port] %>,
