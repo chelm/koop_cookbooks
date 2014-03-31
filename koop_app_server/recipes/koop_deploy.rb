@@ -17,7 +17,7 @@ end
     source 'local.js.erb'
     owner 'root'
     group 'root'
-    mode 0644
+    mode 0655
   end
 
 #end
