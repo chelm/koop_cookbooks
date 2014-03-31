@@ -16,9 +16,3 @@ package 'libpq-dev'
 package 'postgresql-9.3'
 package 'postgresql-client-9.3'
 package 'postgresql-server-dev-all'
-  
-execute 'npm install -g grunt-cli forever' do
-  command 'npm install -g grunt-cli forever'
-  ignore_failure true
-  action :nothing
-end

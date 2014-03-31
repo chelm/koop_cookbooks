@@ -1,6 +1,11 @@
 #include_recipe 'deploy'
 #node[:deploy].each do |application, deploy|
 
+execute 'npm install -g grunt-cli forever' do
+  command 'npm install -g grunt-cli forever'
+  action :nothing
+end
+
   directory node[:koop][:data_dir] do
     mode 0755
     action :create
