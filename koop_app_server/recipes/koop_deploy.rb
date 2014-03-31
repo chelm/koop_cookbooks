@@ -7,13 +7,13 @@ node[:deploy].each do |application, deploy|
     action :create
   end
 
-  #template 'local.js' do
-  #  cookbook 'koop_app_server'
-  #  path "#{deploy[:deploy_to]}/config/local.js"
-  #  source 'local.js.erb'
-  #   owner deploy[:user]
-  #   group deploy[:group]
-  #  mode 0644
-  #end
+  template 'local.js' do
+    cookbook 'koop_app_server'
+    path "#{deploy[:deploy_to]}/current/config/local.js"
+    source 'local.js.erb'
+    owner deploy[:user]
+    group deploy[:group]
+    mode 0644
+  end
 
 end
