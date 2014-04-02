@@ -1,5 +1,5 @@
 execute 'npm install -g grunt-cli forever' do
-  command 'npm install -g grunt-cli forever'
+  command 'sudo npm install -g grunt-cli forever'
   action :nothing
 end
 
