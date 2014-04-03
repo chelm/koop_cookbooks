@@ -2,7 +2,7 @@ module.exports = {
   logfile: '<%= node[:koop][:logfile] %>',
   peechee: {
     type: 's3',
-    dir: '<%= node[:koop][:data_dir] %>',
+    dir: '<%= node[:koop][:s3_bucket] %>',
     aws_key_id: '<%= node[:koop][:aws_key_id] %>',
     aws_secret_access_key: '<%= node[:koop][:aws_secret_access_key] %>',
     region: '<%= node[:koop][:aws_region] %>'
