@@ -1,6 +1,5 @@
-execute 'npm install -g grunt-cli forever' do
-  command 'git clone https://github.com/chelm/koop-osm-provider.git /srv/www/koop/current/api/providers/koop_osm_provider'
-  action :nothing
+execute 'clone osm provider' do
+  command 'sudo git clone https://github.com/chelm/koop-osm-provider.git /srv/www/koop/current/api/providers/koop_osm_provider'
 end
 
 template 'config.js' do
