@@ -1,6 +1,6 @@
 execute 'npm install -g grunt-cli forever' do
   command 'sudo npm install -g grunt-cli forever'
-  action :nothing
+  ignore_failure false
 end
 
 directory node[:koop][:data_dir] do
@@ -21,6 +21,5 @@ execute 'compile assets' do
   cwd "/srv/www/koop/current"
   command 'sudo grunt compileAssets'
   ignore_failure false
-  action :nothing
 end
 
