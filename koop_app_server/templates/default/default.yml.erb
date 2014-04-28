@@ -1,0 +1,19 @@
+server: 
+  port: 80 
+ 
+logfile: '<%= node[:koop][:logfile] %>'
+
+peechee: 
+  type: 's3'
+  dir: '<%= node[:koop][:s3_bucket] %>'
+  aws_key_id: '<%= node[:koop][:aws_key_id] %>'
+  aws_secret_access_key: '<%= node[:koop][:aws_secret_access_key] %>'
+  region: '<%= node[:koop][:aws_region] %>'
+
+data_dir: '<%= node[:koop][:data_dir] %>'
+
+github_token: '<%= node[:koop][:gh_token] %>'
+ 
+db:
+  postgis:
+    conn: '<%= node[:koop][:db][:postgis][:conn] %>'
