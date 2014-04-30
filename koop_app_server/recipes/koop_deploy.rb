@@ -48,3 +48,9 @@ end
     command 'sudo npm install https://github.com/chelm/koop-geocommons/tarball/master'
     ignore_failure false
   end
+
+  execute 'install climate' do
+    cwd "/srv/www/koop/current"
+    command 'sudo npm install https://github.com/chelm/koop-climate/tarball/master'
+    ignore_failure false
+  end
