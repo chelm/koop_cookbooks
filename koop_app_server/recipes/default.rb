@@ -8,6 +8,7 @@ apt_repository 'apt.postgresql.org' do
   uri 'http://apt.postgresql.org/pub/repos/apt'
 end
 
+package 'zip'
 package 'gdal-bin'
 package 'pkg-config'
 package 'libcairo2-dev'
