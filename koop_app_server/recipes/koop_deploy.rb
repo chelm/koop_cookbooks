@@ -63,6 +63,6 @@ end
 
   execute 'install osm' do
     cwd "/srv/www/koop/current"
-    command 'sudo npm install https://github.com/chelm/koop-osm-provider/tarball/master'
+    command 'sudo npm install https://github.com/chelm/koop-osm/tarball/master'
     ignore_failure false
   end
