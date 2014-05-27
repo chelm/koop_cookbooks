@@ -11,9 +11,9 @@ directory node[:koop][:data_dir] do
 end
 
 node[:deploy].each do |application, deploy|
-  template 'defaul.yml' do
+  template 'default.yml' do
     cookbook 'koop_app_server'
-    path "/srv/www/koop/current/config/default.yml"
+    path "#{deploy[:current_path]}/current/config/default.yml"
     source 'default.yml.erb'
     owner 'root'
     group 'root'
