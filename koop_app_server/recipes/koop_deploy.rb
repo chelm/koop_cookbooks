@@ -10,6 +10,7 @@ directory node[:koop][:data_dir] do
   action :create
 end
 
+node[:deploy].each do |application, deploy|
   template 'defaul.yml' do
     cookbook 'koop_app_server'
     path "/srv/www/koop/current/config/default.yml"
@@ -66,3 +67,4 @@ end
     command 'sudo npm install https://github.com/chelm/koop-osm/tarball/master'
     ignore_failure false
   end
+end
