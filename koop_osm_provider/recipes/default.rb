@@ -1,12 +1,6 @@
 execute 'clone osm provider' do
-  command 'sudo git clone https://github.com/chelm/koop-osm-provider.git /srv/www/koop/current/api/providers/koop_osm_provider'
-  not_if { ::File.directory?("/srv/www/koop/current/api/providers/koop_osm_provider") }
-end
-
-execute 'pull provider' do
-  cwd "/srv/www/koop/current/"
-  command 'sudo git pull'
-  only_if { ::File.directory?("/srv/www/koop/current/node_modules/koop-osm") }
+  command 'sudo git clone https://github.com/chelm/koop-osm.git /srv/www/koop/current/node_modules/koop-osm'
+  not_if { ::File.directory?("/srv/www/koop/current/node_modules/koop-osm") }
 end
 
 template 'config.js' do
