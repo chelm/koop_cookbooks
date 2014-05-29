@@ -4,14 +4,14 @@ execute 'clone osm provider' do
 end
 
 execute 'pull provider' do
-  cwd "/srv/www/koop/current/api/providers/koop_osm_provider"
+  cwd "/srv/www/koop/current/"
   command 'sudo git pull'
-  only_if { ::File.directory?("/srv/www/koop/current/api/providers/koop_osm_provider") }
+  only_if { ::File.directory?("/srv/www/koop/current/node_modules/koop-osm") }
 end
 
 template 'config.js' do
   cookbook 'koop_osm_provider'
-  path "/srv/www/koop/current/api/providers/koop_osm_provider/models/config.js"
+  path "/srv/www/koop/current/node_modules/koop-osm/models/config.js"
   source 'config.js.erb'
   owner 'root'
   group 'root'
