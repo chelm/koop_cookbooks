@@ -1,10 +1,5 @@
 include_recipe 'deploy'
 
-execute 'npm install -g grunt-cli forever' do
-  command 'sudo npm install -g grunt-cli forever'
-  ignore_failure false
-end
-
 directory node[:koop][:data_dir] do
   mode 0755
   action :create
@@ -40,7 +35,7 @@ node[:deploy].each do |application, deploy|
 
   execute 'install agol' do
     cwd "#{deploy[:current_path]}"
-    command 'sudo npm install https://github.com/chelm/koop-agol/tarball/master'
+    command 'sudo npm install https://github.com/Esri/koop-agol/tarball/master'
     ignore_failure false
   end
 
