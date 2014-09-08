@@ -8,6 +8,9 @@ apt_repository 'apt.postgresql.org' do
   uri 'http://apt.postgresql.org/pub/repos/apt'
 end
 
+ppa "ppa:ubuntugis/ppa"
+#sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
+
 package 'zip'
 package 'gdal-bin'
 package 'pkg-config'
