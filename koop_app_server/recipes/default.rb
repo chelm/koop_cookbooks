@@ -8,7 +8,17 @@ apt_repository 'apt.postgresql.org' do
   uri 'http://apt.postgresql.org/pub/repos/apt'
 end
 
-ppa "ppa:ubuntugis/ppa"
+execute 'add-apt-repo' do
+  command 'add-apt-repository ppa:ubuntugis/ppa'
+  ignore_failure true
+end
+
+execute 'apt-get-update' do
+  command 'apt-get update'
+  ignore_failure true
+end
+
+#ppa "ppa:ubuntugis/ppa"
 #sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
 
 package 'zip'
