@@ -82,4 +82,23 @@ node[:deploy].each do |application, deploy|
       $? == 0
     end
   end
+
+  template 'github config.js' do
+    cookbook 'koop_app_server'
+    path "#{deploy[:current_path]}/node_modules/koop-github/models/config.js"
+    source 'ghconfig.js.erb'
+    owner 'root'
+    group 'root'
+    mode 0644
+  end
+
+  template 'gist config.js' do
+    cookbook 'koop_app_server'
+    path "#{deploy[:current_path]}/node_modules/koop-gist/models/config.js"
+    source 'ghconfig.js.erb'
+    owner 'root'
+    group 'root'
+    mode 0644
+  end
+  
 end
