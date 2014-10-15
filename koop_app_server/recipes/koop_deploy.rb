@@ -6,10 +6,10 @@ directory node[:koop][:data_dir] do
 end
 
 node[:deploy].each do |application, deploy|
-  template 'default.yml' do
+  template 'default.json' do
     cookbook 'koop_app_server'
-    path "#{deploy[:current_path]}/config/default.yml"
-    source 'default.yml.erb'
+    path "#{deploy[:current_path]}/config/default.json"
+    source 'default.json.erb'
     owner 'root'
     group 'root'
     mode 0644
