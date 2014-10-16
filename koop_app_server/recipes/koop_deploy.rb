@@ -65,7 +65,7 @@ node[:deploy].each do |application, deploy|
 
   execute 'install cloudant' do
     cwd "#{deploy[:current_path]}"
-    command 'sudo npm install https://github.com/cloudant/koop-cloudant/tarball/master'
+    command 'sudo npm install https://github.com/chelm/koop-cloudant/tarball/master'
     ignore_failure false
   end
 
