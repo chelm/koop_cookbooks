@@ -75,6 +75,12 @@ node[:deploy].each do |application, deploy|
     ignore_failure false
   end
 
+  execute 'install ckan' do
+    cwd "#{deploy[:current_path]}"
+    command 'sudo npm install https://github.com/chelm/koop-ckan/tarball/master'
+    ignore_failure false
+  end
+
   ruby_block "restart node.js application #{application}" do
     block do
       Chef::Log.info("restart node.js via: #{node[:deploy][application][:nodejs][:restart_command]}")
