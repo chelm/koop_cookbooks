@@ -1,0 +1,13 @@
+{
+    "logfile": "<%= node[:koop][:logfile] %>",
+    "db": {
+        "postgis": {
+            "conn": "<%= node[:koop][:db][:postgis][:conn] %>"
+        }
+    },
+    "redis": {
+      "prefix":"<%= node[:koop][:agol][:request_workers][:prefix] %>",
+      "port":<%= node[:koop][:agol][:request_workers][:port] %>,
+      "host":"<%= node[:koop][:agol][:request_workers][:host] %>"
+    }
+}
