@@ -1,10 +1,5 @@
 include_recipe 'deploy'
 
-directory node[:koop][:data_dir] do
-  mode 0755
-  action :create
-end
-
 node[:deploy].each do |application, deploy|
   template 'default.json' do
     cookbook 'koop_agol_workers'
