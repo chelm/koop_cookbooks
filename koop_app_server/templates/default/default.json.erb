@@ -13,5 +13,16 @@
         "postgis": {
             "conn": "<%= node[:koop][:db][:postgis][:conn] %>"
         }
+    },
+    "agol":{
+      "request_workers": {
+        "redis":{
+          "prefix":"<%= node[:koop][:agol][:request_workers][:prefix] %>",
+          "port":<%= node[:koop][:agol][:request_workers][:port] %>,
+          "host":"<%= node[:koop][:agol][:request_workers][:host] %>"
+        }
+      }
     }
+
+    
 }
