@@ -17,6 +17,11 @@ execute 'npm install' do
   ignore_failure false
 end
 
+directory 'koop-server/config' do
+  mode 0755
+  action :create
+end
+
 template 'default.json' do
   cookbook 'koop_app_export_workers'
   path "/koop-server/config/default.json"
