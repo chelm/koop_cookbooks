@@ -37,7 +37,7 @@ end
 
 execute 'start workers' do
   cwd "/koop-agol/workers"
-  command "pm2 start pm2.js"
+  command "pm2 start pm2.json"
   ignore_failure false
 end
 
