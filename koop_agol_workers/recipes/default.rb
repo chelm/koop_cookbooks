@@ -25,6 +25,7 @@ end
 
 package 'nodejs'
 package 'zip'
+package 'git'
 package 'gdal-bin'
 package 'pkg-config'
 package 'libcairo2-dev'
@@ -35,7 +36,7 @@ package 'postgresql-9.3'
 package 'postgresql-client-9.3'
 package 'postgresql-server-dev-all'
 
-execute 'install forever' do
-  command 'npm install -g forever'
+execute 'install pm2' do
+  command 'npm install -g pm2'
   ignore_failure true
 end
