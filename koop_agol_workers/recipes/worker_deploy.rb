@@ -26,9 +26,18 @@ template 'default.json' do
   mode 0644
 end
 
+template 'pm2.json' do
+  cookbook 'koop_agol_workers'
+  path "/koop-agol/workers/pm2.json"
+  source 'pm2.json.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+end
+
 execute 'start workers' do
   cwd "/koop-agol/workers"
-  command "pm2 start request-worker.js"
+  command "pm2 start pm2.js"
   ignore_failure false
 end
 
