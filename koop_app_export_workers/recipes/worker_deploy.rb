@@ -31,6 +31,12 @@ template 'default.json' do
   mode 0644
 end
 
+execute 'stop export workers' do
+  cwd "/koop-server"
+  command "pm2 stop ExportWorker"
+  ignore_failure true
+end
+
 execute 'start export workers' do
   cwd "/koop-server"
   command "pm2 start lib/ExportWorker.js"
