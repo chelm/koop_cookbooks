@@ -1,4 +1,9 @@
 
+directory node[:koop][:data_dir] do
+  mode 0755
+  action :create
+end
+
 execute 'rm koop-server' do
   cwd "/"
   command "rm -rf koop-server"
