@@ -12,7 +12,7 @@ end
 
 template 'default.json' do
   cookbook 'koop_agol_workers'
-  path "/workers/config/default.json"
+  path "/koop-agol/workers/config/default.json"
   source 'default.json.erb'
   owner 'root'
   group 'root'
