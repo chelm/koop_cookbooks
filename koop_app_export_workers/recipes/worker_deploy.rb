@@ -36,15 +36,24 @@ template 'default.json' do
   mode 0644
 end
 
+template 'pm2.json' do
+  cookbook 'koop_app_export_workers'
+  path "/koop-server/lib/pm2.json"
+  source 'pm2.json.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+end
+
 execute 'stop export workers' do
   cwd "/koop-server"
-  command "pm2 stop ExportWorker"
+  command "pm2 stop all"
   ignore_failure true
 end
 
 execute 'start export workers' do
   cwd "/koop-server"
-  command "pm2 start lib/ExportWorker.js"
+  command "pm2 start lib/pm2.json"
   ignore_failure false
 end
 
