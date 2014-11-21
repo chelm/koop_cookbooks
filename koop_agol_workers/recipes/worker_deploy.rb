@@ -1,4 +1,10 @@
 
+execute 'rm koop-agol' do
+  cwd "/"
+  command "rm -rf koop-agol"
+  ignore_failure true
+end
+
 execute 'install koop-agol' do
   cwd "/"
   command "git clone https://github.com/Esri/koop-agol.git"
@@ -8,6 +14,7 @@ end
 execute 'npm install' do
   cwd "/koop-agol"
   command "npm install"
+  ignore_failure false
 end
 
 template 'default.json' do
@@ -21,6 +28,7 @@ end
 
 execute 'start workers' do
   cwd "/koop-agol/workers"
-  command "pm2 start request_worker.js"
+  command "pm2 start request-worker.js"
+  ignore_failure false
 end
 
