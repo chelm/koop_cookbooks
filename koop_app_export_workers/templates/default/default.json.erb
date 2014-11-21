@@ -1,6 +1,9 @@
 {
     "data_dir": "<%= node[:koop][:data_dir] %>",
     "logfile": "<%= node[:koop][:logfile] %>",
+    "s3": {
+      "bucket": "<%= node[:koop][:s3][:bucket] %>"
+    },
     "db": {
         "postgis": {
             "conn": "<%= node[:koop][:db][:postgis][:conn] %>"
