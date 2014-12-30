@@ -4,32 +4,32 @@ directory node[:koop][:data_dir] do
   action :create
 end
 
-execute 'rm koop-server' do
+execute 'rm koop' do
   cwd "/"
   command "rm -rf koop-server"
   ignore_failure true
 end
 
-execute 'install koop-agol' do
+execute 'install koop' do
   cwd "/"
-  command "git clone https://github.com/Esri/koop-server.git"
+  command "git clone https://github.com/Esri/koop.git"
   ignore_failure false
 end
 
 execute 'npm install' do
-  cwd "/koop-server"
+  cwd "/koop"
   command "npm install"
   ignore_failure false
 end
 
-directory 'koop-server/config' do
+directory 'koop/config' do
   mode 0755
   action :create
 end
 
 template 'default.json' do
   cookbook 'koop_app_export_workers'
-  path "/koop-server/config/default.json"
+  path "/koop/config/default.json"
   source 'default.json.erb'
   owner 'root'
   group 'root'
@@ -38,7 +38,7 @@ end
 
 template 'pm2.json' do
   cookbook 'koop_app_export_workers'
-  path "/koop-server/lib/pm2.json"
+  path "/koop/lib/pm2.json"
   source 'pm2.json.erb'
   owner 'root'
   group 'root'
@@ -46,13 +46,13 @@ template 'pm2.json' do
 end
 
 execute 'stop export workers' do
-  cwd "/koop-server"
+  cwd "/koop"
   command "pm2 stop all"
   ignore_failure true
 end
 
 execute 'start export workers' do
-  cwd "/koop-server"
+  cwd "/koop"
   command "pm2 start lib/pm2.json"
   ignore_failure false
 end
