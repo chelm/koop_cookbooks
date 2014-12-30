@@ -35,6 +35,12 @@ template 'pm2.json' do
   mode 0644
 end
 
+execute 'stop workers' do
+  cwd "/koop-agol/workers"
+  command "pm2 delete all"
+  ignore_failure true
+end
+
 execute 'start workers' do
   cwd "/koop-agol/workers"
   command "pm2 start pm2.json"
