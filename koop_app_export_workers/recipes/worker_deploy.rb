@@ -6,7 +6,7 @@ end
 
 execute 'rm koop' do
   cwd "/"
-  command "rm -rf koop-server"
+  command "rm -rf koop"
   ignore_failure true
 end
 
