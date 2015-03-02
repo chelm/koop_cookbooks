@@ -22,6 +22,12 @@ execute 'npm install' do
   ignore_failure false
 end
 
+execute 'npm install pg-cache' do
+  cwd "/koop"
+  command "npm install koop-pgcache"
+  ignore_failure false
+end
+
 directory 'koop/config' do
   mode 0755
   action :create

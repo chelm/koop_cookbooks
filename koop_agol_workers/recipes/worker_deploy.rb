@@ -17,6 +17,12 @@ execute 'npm install' do
   ignore_failure false
 end
 
+execute 'npm install pg-cache' do
+  cwd "/koop-agol"
+  command "npm install koop-pgcache"
+  ignore_failure false
+end
+
 template 'default.json' do
   cookbook 'koop_agol_workers'
   path "/koop-agol/workers/config/default.json"
