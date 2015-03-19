@@ -13,6 +13,7 @@
       "conn": "<%= node[:koop][:db][:conn] %>"
     },
     "export_workers":{
+      "force":true,
       "redis": {
         "prefix":"<%= node[:koop][:export_workers][:redis][:prefix] %>",
         "port":<%= node[:koop][:agol][:request_workers][:port] %>,
@@ -21,6 +22,7 @@
     },
     "agol":{
       "request_workers": {
+        "force":true,
         "redis": {
           "prefix": "<%= node[:koop][:agol][:request_workers][:prefix] %>",
           "port": <%= node[:koop][:agol][:request_workers][:port] %>,
