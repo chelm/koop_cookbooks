@@ -32,6 +32,13 @@ template 'worker alarm' do
   mode 0744
 end
 
+cron "run_worker_alarm" do
+  hour "*"
+  minute "*/1"
+  weekday "*"
+  command "/koop-agol/workers/worker-alarm.sh"
+end
+
 template 'default.json' do
   cookbook 'koop_agol_workers'
   path "/koop-agol/workers/config/default.json"
