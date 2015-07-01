@@ -1,2 +1,2 @@
-inactive=`curl -s http://127.0.0.1/agolworkers | jq '.active'`
+inactive=`curl -s http://127.0.0.1/agolworkers | jq '.inactive'`
 aws cloudwatch put-metric-data --namespace "<%= node[:koop][:alarm][:namespace] %>" --metric-name "<%= node[:koop][:alarm][:name] %>" --value $inactive
