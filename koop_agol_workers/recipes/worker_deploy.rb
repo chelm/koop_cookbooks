@@ -23,6 +23,15 @@ execute 'npm install pg-cache' do
   ignore_failure false
 end
 
+template 'worker alarm' do
+  cookbook 'koop_agol_workers'
+  path "/koop-agol/workers/worker-alarm.sh"
+  source 'worker-alarm.sh.erb'
+  owner 'root'
+  group 'root'
+  mode 0744
+end
+
 template 'default.json' do
   cookbook 'koop_agol_workers'
   path "/koop-agol/workers/config/default.json"
