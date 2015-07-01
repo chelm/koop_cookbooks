@@ -14,8 +14,8 @@ node[:deploy].each do |application, deploy|
     group 'root'
     mode 0644
   end
-
-  template 'worker alarm' do
+ 
+  template'worker alarm' do
     cookbook 'koop_agol_workers'
     path "#{deploy[:current_path]}/worker-alarm.sh"
     source 'worker-alarm.sh.erb'
@@ -28,7 +28,7 @@ node[:deploy].each do |application, deploy|
     hour "*"
     minute "*/1"
     weekday "*"
-    command "/koop-agol/workers/worker-alarm.sh"
+    command "#{deploy[:current_path]}/worker-alarm.sh"
   end
 
   #ruby_block "restart node.js application #{application}" do
