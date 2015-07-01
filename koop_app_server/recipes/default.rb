@@ -36,6 +36,7 @@ end
 #ppa "ppa:ubuntugis/ppa"
 #sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
 
+package 'jq'
 package 'zip'
 package 'gdal-bin'
 package 'pkg-config'
