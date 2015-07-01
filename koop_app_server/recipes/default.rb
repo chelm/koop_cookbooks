@@ -18,6 +18,21 @@ execute 'apt-get-update' do
   ignore_failure true
 end
 
+execute 'download/install pip' do
+  command 'curl -o /get-pip.py https://bootstrap.pypa.io/get-pip.py && python /get-pip.py'
+  ignore_failure false
+end
+
+execute 'install awscli' do
+  command 'pip install awscli'
+  ignore_failure false
+end
+
+execute 'set region on aws cli' do
+  command 'aws configure set default.region us-east-1'
+  ignore_failure false
+end
+
 #ppa "ppa:ubuntugis/ppa"
 #sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
 
