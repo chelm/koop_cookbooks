@@ -17,7 +17,7 @@ node[:deploy].each do |application, deploy|
 
   template 'worker alarm' do
     cookbook 'koop_agol_workers'
-    path "/koop-agol/workers/worker-alarm.sh"
+    path "#{deploy[:current_path]}/worker-alarm.sh"
     source 'worker-alarm.sh.erb'
     owner 'root'
     group 'root'
