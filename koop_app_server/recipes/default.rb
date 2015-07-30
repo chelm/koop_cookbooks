@@ -47,3 +47,8 @@ package 'libpq-dev'
 package 'postgresql-9.3'
 package 'postgresql-client-9.3'
 package 'postgresql-server-dev-all'
+
+execute 'install pm2' do
+  command 'npm install -g pm2'
+  ignore_failure true
+end

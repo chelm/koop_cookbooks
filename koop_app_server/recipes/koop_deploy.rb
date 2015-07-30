@@ -31,6 +31,18 @@ node[:deploy].each do |application, deploy|
     command "#{deploy[:current_path]}/worker-alarm.sh"
   end
 
+  execute 'stop monit' do
+    cwd "/"
+    command 'monit stop node_web_app_koop'
+    ignore_failure true
+  end
+
+  execute 'start koop' do
+    cwd "#{deploy[:current_path]}"
+    command "pm2 start server.js"
+    ignore_failure true
+  end
+
   #ruby_block "restart node.js application #{application}" do
   #  block do
   #    Chef::Log.info("restart node.js via: #{node[:deploy][application][:nodejs][:restart_command]}")
