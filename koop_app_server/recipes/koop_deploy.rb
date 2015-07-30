@@ -37,10 +37,18 @@ node[:deploy].each do |application, deploy|
     ignore_failure true
   end
 
+  execute 'stop koop' do
+    group 'root'
+    user 'root'
+    cwd "#{deploy[:current_path]}"
+    command 'pm2 delete all'
+    ignore_failure false
+  end
+
   execute 'start koop' do
     cwd "#{deploy[:current_path]}"
     command "pm2 start server.js"
-    ignore_failure true
+    ignore_failure false
   end
 
   #ruby_block "restart node.js application #{application}" do
